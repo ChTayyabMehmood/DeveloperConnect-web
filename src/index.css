@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* === PRIMARY ACTIONS === */
+  --color-primary: #10b981; /* Emerald 500 - Main CTA, success, active states */
+  --color-primary-hover: #059669; /* Emerald 600 - Hover state for primary buttons */
+
+  /* === SEMANTIC COLORS === */
+  --color-destructive: #f43f5e; /* Rose 500 - Reject, delete, errors */
+  --color-warning: #f59e0b; /* Amber 500 - Pending, caution */
+  --color-info: #3b82f6; /* Blue 500 - Neutral highlights, links */
+
+  /* === SURFACES & BACKGROUNDS === */
+  --color-bg-app: #09090b; /* Zinc 950 - Main app background */
+  --color-bg-surface: #18181b; /* Zinc 900 - Cards, panels, inputs */
+  --color-bg-elevated: #27272a; /* Zinc 800 - Hover states, dropdowns */
+  --color-bg-card: #0f0f12; /* Zinc 900 - Card backgrounds */
+  --color-border-default: #27272a; /* Zinc 800 - Standard borders */
+  --color-border-hover: #3f3f46; /* Zinc 700 - Hover/focus highlight */
+
+  /* === TYPOGRAPHY === */
+  --color-text-primary: #f4f4f5; /* Zinc 100 - Headings, main text */
+  --color-text-secondary: #d4d4d8; /* Zinc 300 - Descriptions, labels */
+  --color-text-tertiary: #a1a1aa; /* Zinc 400 - Metadata, timestamps */
+  --color-text-placeholder: #71717a; /* Zinc 500 - Placeholders, disabled */
+
+  /* === FONTS === */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Custom scrollbar for feed panes */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Firefox support */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
