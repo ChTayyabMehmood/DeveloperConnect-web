@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import TrustedBySection from "../components/TrustedBySection";
 const Landing = () => {
   return (
-    <div className="min-h-screen  text-white">
+    <div className="min-h-screen bg-bg-app text-white">
       <Navbar />
       <HeroComponent />
       <TrustedBySection />

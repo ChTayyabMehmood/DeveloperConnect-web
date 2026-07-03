@@ -2,7 +2,7 @@ import logo from "./../assets/logo.png"; // Ensure this path is correct
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-bg-app/80 backdrop-blur-md border-b border-border-default">
+    <nav className="sticky top-0 z-50 bg-bg-app backdrop-blur-md border-b border-border-default">
       {/* The Container: This ensures alignment with the rest of your site */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}

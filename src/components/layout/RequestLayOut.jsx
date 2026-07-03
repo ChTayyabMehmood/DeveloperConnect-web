@@ -23,19 +23,14 @@ const ProfileCard = () => {
         {/* Button */}
         <div className="flex gap-4 text-text-tertiary text-sm">
           <span className="flex items-center gap-2 border border-border-default rounded-md px-3 py-1 hover:bg-bg-elevated hover:border-border-hover">
-            <CiBookmark />
-            <button>Save</button>
-          </span>
-
-          <span className="flex items-center gap-2 border border-border-default rounded-md px-3 py-1 hover:bg-bg-elevated hover:border-border-hover">
             {" "}
             <MdBlock />
-            <button>Ignore</button>
+            <button>Close Issue</button>
           </span>
           <span className="flex items-center gap-2 text-white bg-primary border border-border-default rounded-md px-6 py-2 hover:bg-primary-hover">
             {" "}
             <FaRegCopy />
-            <button>Request to Connect</button>
+            <button>Merger Accept PR</button>
           </span>
         </div>
       </div>

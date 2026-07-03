@@ -3,8 +3,11 @@ import logo from "../assets/logo.png";
 import { CiBellOn } from "react-icons/ci";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const TopNavbar = () => {
+  const user = useSelector((store) => store.user);
+
   return (
     <header className="flex items-center justify-between h-14 px-6 bg-bg-app border-b border-border-default shrink-0">
       {/* Left: Logo + Search */}
@@ -47,12 +50,15 @@ const TopNavbar = () => {
           aria-label="User menu"
         >
           <img
-            src="https://api.dicebear.com/7.x/avataaars/svg?seed=John"
+            src={
+              user?.photoUrl ||
+              "https://api.dicebear.com/7.x/avataaars/svg?seed=John"
+            }
             alt=""
             className="w-7 h-7 rounded-full bg-bg-surface"
           />
           <span className="text-sm font-medium text-text-secondary hidden lg:inline">
-            John Doe
+            {user?.firstName || "John Doe"}
           </span>
           <RiArrowDropDownLine size={20} className="text-text-tertiary" />
         </button>
