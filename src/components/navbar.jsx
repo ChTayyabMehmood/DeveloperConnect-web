@@ -1,5 +1,5 @@
 import logo from "./../assets/logo.png"; // Ensure this path is correct
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-bg-app backdrop-blur-md border-b border-border-default">
@@ -7,7 +7,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img src={logo} alt="DeveloperConnect Logo" className="h-8 w-auto" />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="DeveloperConnect Logo"
+              className="h-8 w-auto"
+            />
+          </Link>
         </div>
 
         {/* Middle Links: Hidden on mobile, shown on md+ screens */}
@@ -34,12 +40,18 @@ const Navbar = () => {
 
         {/* Right Side Buttons */}
         <div className="flex items-center gap-4">
-          <button className="hidden sm:block text-sm font-medium text-text-primary hover:text-white transition-colors">
+          <Link
+            to="/login"
+            className="hidden sm:block text-sm font-medium text-text-primary hover:text-white transition-colors"
+          >
             Sign In
-          </button>
-          <button className="bg-white text-black hover:bg-zinc-200 px-4 py-2 rounded-md text-sm font-semibold transition-colors">
-            Get Early Access
-          </button>
+          </Link>
+          <Link
+            to="/signup"
+            className="hidden sm:block text-sm font-medium text-text-primary hover:text-white transition-colors"
+          >
+            Sign Up
+          </Link>
         </div>
       </div>
     </nav>

@@ -18,6 +18,7 @@ const Login = () => {
 
   const HandleLogin = async () => {
     try {
+      console.log("button clicked");
       const res = await axios.post(
         `${BASE_URL}/login`,
         {
@@ -26,7 +27,7 @@ const Login = () => {
         },
         { withCredentials: true },
       );
-      // console.log(res.data);
+      console.log(res.data);
       dispatch(addUser(res.data));
       navigate("/feed");
     } catch (e) {

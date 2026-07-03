@@ -4,9 +4,38 @@ import { CiBellOn } from "react-icons/ci";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../utils/userSlices";
 
 const TopNavbar = () => {
   const user = useSelector((store) => store.user);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    axios
+      .post(`${BASE_URL}/logout`, {}, { withCredentials: true })
+      .then((response) => {
+        console.log("Logout successful:", response.data);
+        // Clear user data from Redux store
+        dispatch(removeUser());
+        // Redirect to login page or any other page
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Error during logout:", error);
+      });
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <header className="flex items-center justify-between h-14 px-6 bg-bg-app border-b border-border-default shrink-0">
@@ -46,8 +75,9 @@ const TopNavbar = () => {
 
         {/* Profile Dropdown Trigger */}
         <button
-          className="flex items-center gap-2 px-2 py-1 rounded-md hover:bg-bg-surface transition-colors"
+          className="flex items-center gap-2 px-2 py-1 rounded-md hover:bg-bg-surface transition-colors group relative"
           aria-label="User menu"
+          onClick={toggleDropdown}
         >
           <img
             src={
@@ -62,6 +92,30 @@ const TopNavbar = () => {
           </span>
           <RiArrowDropDownLine size={20} className="text-text-tertiary" />
         </button>
+        {/* dropdown to quick link profile , requestes and logout */}
+        <div
+          className={`absolute right-0 mt-43 w-48 bg-bg-surface border border-border-default rounded-md shadow-lg z-10 ${isDropdownOpen ? "block" : "hidden"}`}
+        >
+          <Link
+            to="/feed"
+            className="block px-4 py-2 text-sm text-text-primary hover:bg-bg-surface"
+          >
+            Discover
+          </Link>
+          <Link
+            to="/requests"
+            className="block px-4 py-2 text-sm text-text-primary hover:bg-bg-surface"
+          >
+            Requests
+          </Link>
+          <Link
+            to="/logout"
+            className="block px-4 py-2 text-sm text-text-primary hover:bg-bg-surface"
+            onClick={handleLogout}
+          >
+            Logout
+          </Link>
+        </div>
       </div>
     </header>
   );
